@@ -1,0 +1,1851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aazim | vortex_bk|Cybersecurity Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00ff41;
+            --secondary: #008f11;
+            --accent: #ff003c;
+            --dark: #0a0a0a;
+            --darker: #000000;
+            --light: #c8c8c8;
+            --neon-glow: 0 0 10px var(--primary), 0 0 20px var(--primary), 0 0 40px var(--primary);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            line-height: 1.6;
+            color: var(--light);
+            background-color: var(--darker);
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 255, 65, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(0, 143, 17, 0.05) 0%, transparent 20%),
+                linear-gradient(to bottom, var(--darker), var(--dark));
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            box-shadow: var(--neon-glow);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: transparent;
+            color: var(--primary);
+            border-radius: 0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            border: 2px solid var(--primary);
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--primary);
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .btn:hover {
+            color: var(--dark);
+            box-shadow: var(--neon-glow);
+        }
+
+        .btn:hover::before {
+            left: 0;
+        }
+
+        .btn-accent {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-accent::before {
+            background: var(--accent);
+        }
+
+        .btn-accent:hover {
+            color: var(--dark);
+            box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent), 0 0 40px var(--accent);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(10, 10, 10, 0.9);
+            box-shadow: 0 2px 10px rgba(0, 255, 65, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 255, 65, 0.2);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary);
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: var(--neon-glow);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            color: var(--light);
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            text-shadow: var(--neon-glow);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+            box-shadow: var(--neon-glow);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(10, 10, 10, 0.9)), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(0,255,65,0.03)"/></svg>');
+            color: var(--light);
+            padding: 180px 0 100px;
+            margin-top: 70px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 255, 65, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 0, 60, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            text-shadow: var(--neon-glow);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--light);
+            font-weight: 300;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .hero .btn {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .hero .btn:hover {
+            background: var(--primary);
+            color: var(--dark);
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), var(--neon-glow);
+            position: relative;
+            border: 1px solid var(--primary);
+        }
+
+        .about-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 65, 0.1), transparent);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+            filter: grayscale(30%) contrast(110%);
+        }
+
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .skill {
+            background-color: rgba(0, 255, 65, 0.1);
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(0, 255, 65, 0.3);
+            transition: var(--transition);
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .skill:hover {
+            background: var(--primary);
+            color: var(--dark);
+            transform: translateY(-3px);
+            box-shadow: var(--neon-glow);
+        }
+
+        /* Services Section */
+        .services {
+            background-color: rgba(10, 10, 10, 0.7);
+            border-top: 1px solid rgba(0, 255, 65, 0.2);
+            border-bottom: 1px solid rgba(0, 255, 65, 0.2);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: rgba(20, 20, 20, 0.8);
+            padding: 40px 30px;
+            border-radius: 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 255, 65, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.1), transparent);
+            transition: var(--transition);
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), var(--neon-glow);
+            border-color: var(--primary);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+        }
+
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            border: 1px solid rgba(0, 255, 65, 0.2);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+            filter: grayscale(30%) contrast(110%);
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.5s;
+            border-top: 1px solid var(--primary);
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+
+        /* Memory Game Section */
+        .memory-game-section {
+            background-color: rgba(10, 10, 10, 0.7);
+            border-top: 1px solid rgba(0, 255, 65, 0.2);
+            border-bottom: 1px solid rgba(0, 255, 65, 0.2);
+        }
+
+        .game-container {
+            background: rgba(20, 20, 20, 0.9);
+            border-radius: 0;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid rgba(0, 255, 65, 0.2);
+        }
+
+        .game-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .game-header h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+        }
+
+        .game-info {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 20px;
+            background: rgba(0, 255, 65, 0.1);
+            padding: 15px;
+            border-radius: 0;
+            border: 1px solid rgba(0, 255, 65, 0.3);
+        }
+
+        .info-box {
+            text-align: center;
+        }
+
+        .info-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .info-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+        }
+
+        .game-board {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            width: 100%;
+            perspective: 1000px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            height: 120px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            cursor: pointer;
+            border-radius: 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(0, 255, 65, 0.2);
+        }
+
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0;
+        }
+
+        .card-front {
+            background: #1a1a2e;
+            transform: rotateY(180deg);
+            font-size: 2.5rem;
+            border: 1px solid var(--primary);
+        }
+
+        .card-back {
+            background: #0a0a0a;
+            border: 1px solid rgba(0, 255, 65, 0.5);
+        }
+
+        .card-back::after {
+            content: "?";
+            font-size: 2.5rem;
+            color: var(--primary);
+            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+        }
+
+        .game-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .game-btn {
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            border-radius: 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .game-btn:hover {
+            background: var(--primary);
+            color: var(--dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), var(--neon-glow);
+        }
+
+        /* HackGame Bot Section */
+        .hackgame-bot-section {
+            background-color: rgba(10, 10, 10, 0.7);
+            border-top: 1px solid rgba(0, 255, 65, 0.2);
+            border-bottom: 1px solid rgba(0, 255, 65, 0.2);
+        }
+
+        .hackgame-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(20, 20, 20, 0.9);
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 255, 65, 0.5);
+        }
+
+        .hackgame-header {
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.9), rgba(10, 10, 10, 0.9));
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
+            position: relative;
+        }
+
+        .hackgame-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .hackgame-logo i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            text-shadow: var(--neon-glow);
+        }
+
+        .hackgame-title {
+            font-size: 2.2rem;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 5px;
+            text-shadow: none;
+        }
+
+        .hackgame-subtitle {
+            color: var(--light);
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+
+        .hackgame-chat-container {
+            display: flex;
+            height: 500px;
+        }
+
+        .hackgame-sidebar {
+            width: 30%;
+            background: rgba(15, 15, 15, 0.9);
+            padding: 20px;
+            border-right: 1px solid rgba(0, 255, 65, 0.3);
+            overflow-y: auto;
+        }
+
+        .hackgame-main-chat {
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hackgame-chat-header {
+            padding: 15px 20px;
+            background: rgba(30, 30, 30, 0.9);
+            border-bottom: 1px solid rgba(0, 255, 65, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hackgame-chat-header-info h3 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+        }
+
+        .hackgame-chat-header-info p {
+            color: var(--light);
+            font-size: 0.8rem;
+        }
+
+        .hackgame-chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background: rgba(10, 10, 10, 0.7);
+        }
+
+        .hackgame-message {
+            max-width: 80%;
+            padding: 12px 15px;
+            border-radius: 0;
+            line-height: 1.4;
+            position: relative;
+        }
+
+        .hackgame-bot-message {
+            background: rgba(30, 30, 30, 0.9);
+            border-bottom-left-radius: 0;
+            align-self: flex-start;
+            border: 1px solid rgba(0, 255, 65, 0.3);
+            border-left: 3px solid var(--primary);
+        }
+
+        .hackgame-user-message {
+            background: linear-gradient(90deg, rgba(0, 143, 17, 0.7), rgba(0, 255, 65, 0.5));
+            border-bottom-right-radius: 0;
+            align-self: flex-end;
+            color: white;
+            border: 1px solid rgba(0, 255, 65, 0.5);
+            border-right: 3px solid var(--accent);
+        }
+
+        .hackgame-chat-input {
+            padding: 15px;
+            background: rgba(30, 30, 30, 0.9);
+            border-top: 1px solid rgba(0, 255, 65, 0.3);
+            display: flex;
+        }
+
+        .hackgame-chat-input input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 0;
+            background: rgba(20, 20, 20, 0.9);
+            color: var(--light);
+            font-size: 1rem;
+            border: 1px solid rgba(0, 255, 65, 0.3);
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .hackgame-chat-input input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+        }
+
+        .hackgame-chat-input button {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            width: 45px;
+            height: 45px;
+            border-radius: 0;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .hackgame-chat-input button:hover {
+            background: var(--primary);
+            color: var(--dark);
+            transform: scale(1.05);
+            box-shadow: var(--neon-glow);
+        }
+
+        .hackgame-quick-questions h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+        }
+
+        .hackgame-question {
+            padding: 12px 15px;
+            background: rgba(30, 30, 30, 0.9);
+            margin-bottom: 10px;
+            border-radius: 0;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-left: 3px solid transparent;
+            border: 1px solid rgba(0, 255, 65, 0.2);
+        }
+
+        .hackgame-question:hover {
+            background: rgba(40, 40, 40, 0.9);
+            border-left: 3px solid var(--primary);
+            box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+        }
+
+        .hackgame-features {
+            margin-top: 20px;
+        }
+
+        .hackgame-features h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+        }
+
+        .hackgame-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            color: var(--light);
+        }
+
+        .hackgame-feature i {
+            color: var(--primary);
+            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+        }
+
+        .hackgame-typing-indicator {
+            display: none;
+            padding: 12px 15px;
+            background: rgba(30, 30, 30, 0.9);
+            border-radius: 0;
+            border-bottom-left-radius: 0;
+            align-self: flex-start;
+            width: 70px;
+            border: 1px solid rgba(0, 255, 65, 0.3);
+            border-left: 3px solid var(--primary);
+        }
+
+        .hackgame-typing-dots {
+            display: flex;
+            gap: 4px;
+        }
+
+        .hackgame-typing-dots span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary);
+            animation: hackgameTyping 1.4s infinite ease-in-out;
+            box-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+        }
+
+        .hackgame-typing-dots span:nth-child(1) { animation-delay: -0.32s; }
+        .hackgame-typing-dots span:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes hackgameTyping {
+            0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+            40% { transform: scale(1); opacity: 1; }
+        }
+
+        .win-message {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s;
+        }
+
+        .win-message.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .win-content {
+            background: rgba(20, 20, 20, 0.95);
+            padding: 40px;
+            border-radius: 0;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--primary);
+        }
+
+        .win-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            text-shadow: var(--neon-glow);
+        }
+
+        .win-content p {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: var(--light);
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: rgba(10, 10, 10, 0.7);
+            border-top: 1px solid rgba(0, 255, 65, 0.2);
+        }
+
+        .contact-content {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-form {
+            flex: 1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: transparent;
+            color: var(--primary);
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid rgba(0, 255, 65, 0.3);
+            border-radius: 0;
+            font-size: 1rem;
+            transition: var(--transition);
+            background: rgba(20, 20, 20, 0.8);
+            color: var(--light);
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 255, 65, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: var(--light);
+            padding: 50px 0 20px;
+            border-top: 1px solid rgba(0, 255, 65, 0.2);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-family: 'Orbitron', sans-serif;
+            color: var(--primary);
+            text-shadow: var(--neon-glow);
+        }
+
+        .footer-logo span {
+            color: var(--accent);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: var(--transition);
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            text-shadow: var(--neon-glow);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 255, 65, 0.3);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: var(--dark);
+            transform: translateY(-3px);
+            box-shadow: var(--neon-glow);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 255, 65, 0.2);
+            color: var(--light);
+            font-size: 0.9rem;
+        }
+
+        /* Matrix Rain Effect */
+        .matrix-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content, .contact-content {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 0;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: rgba(10, 10, 10, 0.95);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                transform: translateY(-150%);
+                transition: transform 0.3s;
+                border-bottom: 1px solid rgba(0, 255, 65, 0.3);
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .game-board {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .card {
+                height: 100px;
+            }
+            
+            .hackgame-chat-container {
+                flex-direction: column;
+                height: auto;
+            }
+            
+            .hackgame-sidebar, .hackgame-main-chat {
+                width: 100%;
+            }
+            
+            .hackgame-sidebar {
+                border-right: none;
+                border-bottom: 1px solid rgba(0, 255, 65, 0.3);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Matrix Rain Background -->
+    <canvas class="matrix-rain" id="matrixRain"></canvas>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">Aazim<span>vortex_bk</span></div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#memory-game">Memory Game</a></li>
+                    <li><a href="#hackgame-bot">HackGame Bot</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>CYBERSECURITY OF vortex_bk</h1>
+                <p>I build secure digital fortresses and create tools that protect against digital threats. With a hacker's mindset and a developer's skillset, I turn vulnerabilities into strengths.</p>
+                <div class="hero-btns">
+                    <a href="#portfolio" class="btn">View My Work</a>
+                    <a href="#contact" class="btn btn-accent">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="aazim cool.jfif" alt="Aazim - Cybersecurity Developer">
+                </div>
+                <div class="about-text">
+                    <h3>Hello! I'm vortex_bk</h3>
+                    <p>I'm a cybersecurity-focused full-stack developer with a passion for ethical hacking and secure software development. With over 5 years of experience in the industry, I've helped organizations fortify their digital assets against emerging threats.</p>
+                    <p>My approach combines offensive security knowledge with defensive programming practices to create solutions that are not only functional but also resilient against attacks.</p>
+                    <div class="skills">
+                        <span class="skill">Penetration Testing</span>
+                        <span class="skill">Secure Coding</span>
+                        <span class="skill">Network Security</span>
+                        <span class="skill">Cryptography</span>
+                        <span class="skill">Incident Response</span>
+                        <span class="skill">Python & Bash</span>
+                        <span class="skill">Web App Security</span>
+                        <span class="skill">Digital Forensics</span>
+                    </div>
+                    <a href="#contact" class="btn" style="margin-top:20px;">Hire Me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Security Auditing</h3>
+                    <p>Comprehensive security assessments to identify vulnerabilities in your applications and infrastructure before attackers do.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Secure Development</h3>
+                    <p>Building applications with security-first principles, implementing best practices to prevent common vulnerabilities.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-secret"></i>
+                    </div>
+                    <h3>Penetration Testing</h3>
+                    <p>Ethical hacking services to test your defenses and provide actionable recommendations for improvement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Portfolio</h2>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <!-- Placeholder for portfolio image -->
+                    <div style="width:100%; height:250px; background:linear-gradient(45deg, #0a0a0a, #00ff41); display:flex; align-items:center; justify-content:center; color:white;">
+                        <i class="fas fa-lock" style="font-size:50px;"></i>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h3>Secure Auth System</h3>
+                        <p>Multi-factor authentication system with biometric verification</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div style="width:100%; height:250px; background:linear-gradient(45deg, #0a0a0a, #ff003c); display:flex; align-items:center; justify-content:center; color:white;">
+                        <i class="fas fa-network-wired" style="font-size:50px;"></i>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h3>Network Monitoring Tool</h3>
+                        <p>Real-time network traffic analysis and threat detection</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div style="width:100%; height:250px; background:linear-gradient(45deg, #0a0a0a, #008f11); display:flex; align-items:center; justify-content:center; color:white;">
+                        <i class="fas fa-bug" style="font-size:50px;"></i>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h3>Vulnerability Scanner</h3>
+                        <p>Automated security scanning for web applications</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Memory Game Section -->
+    <section id="memory-game" class="memory-game-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Memory Card Game</h2>
+                <p>A fun interactive game I developed using vanilla JavaScript</p>
+            </div>
+            <div class="game-container">
+                <div class="game-header">
+                    <h3>Memory Card Game</h3>
+                    <p>Flip cards to find matching pairs</p>
+                </div>
+                
+                <div class="game-info">
+                    <div class="info-box">
+                        <div class="info-label">Moves</div>
+                        <div class="info-value" id="moves">0</div>
+                    </div>
+                    <div class="info-box">
+                        <div class="info-label">Time</div>
+                        <div class="info-value" id="timer">0s</div>
+                    </div>
+                    <div class="info-box">
+                        <div class="info-label">Matches</div>
+                        <div class="info-value" id="matches">0/8</div>
+                    </div>
+                </div>
+                
+                <div class="game-board" id="game-board">
+                    <!-- Cards will be generated by JavaScript -->
+                </div>
+                
+                <div class="game-controls">
+                    <button class="game-btn" id="restart-btn">Restart Game</button>
+                    <button class="game-btn" id="new-game-btn">New Game</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HackGame Bot Section -->
+    <section id="hackgame-bot" class="hackgame-bot-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>HackGame Bot</h2>
+                <p>An AI chatbot for hacking and gaming enthusiasts</p>
+            </div>
+            <div class="hackgame-container">
+                <div class="hackgame-header">
+                    <div class="hackgame-logo">
+                        <i class="fas fa-terminal"></i>
+                        <div>
+                            <h1 class="hackgame-title">HackGame Bot</h1>
+                            <p class="hackgame-subtitle">Your AI Assistant for Hacking & Gaming</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hackgame-chat-container">
+                    <div class="hackgame-sidebar">
+                        <div class="hackgame-quick-questions">
+                            <h3>Quick Questions</h3>
+                            <div class="hackgame-question" data-question="What is ethical hacking?">What is ethical hacking?</div>
+                            <div class="hackgame-question" data-question="Recommend hacking games for beginners">Recommend hacking games for beginners</div>
+                            <div class="hackgame-question" data-question="What is a CTF competition?">What is a CTF competition?</div>
+                            <div class="hackgame-question" data-question="How to get started in cybersecurity?">How to get started in cybersecurity?</div>
+                            <div class="hackgame-question" data-question="Best resources to learn hacking">Best resources to learn hacking</div>
+                        </div>
+                        
+                        <div class="hackgame-features">
+                            <h3>What I Can Do</h3>
+                            <div class="hackgame-feature">
+                                <i class="fas fa-gamepad"></i>
+                                <span>Recommend hacking games</span>
+                            </div>
+                            <div class="hackgame-feature">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Explain cybersecurity concepts</span>
+                            </div>
+                            <div class="hackgame-feature">
+                                <i class="fas fa-code"></i>
+                                <span>Discuss tools & techniques</span>
+                            </div>
+                            <div class="hackgame-feature">
+                                <i class="fas fa-users"></i>
+                                <span>Connect gaming to real-world skills</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hackgame-main-chat">
+                        <div class="hackgame-chat-header">
+                            <div class="hackgame-chat-header-info">
+                                <h3>HackGame Assistant</h3>
+                                <p>Online • Ready to help</p>
+                            </div>
+                        </div>
+                        
+                        <div class="hackgame-chat-messages" id="hackgame-chat-messages">
+                            <div class="hackgame-message hackgame-bot-message">
+                                Hello! I'm your HackGame assistant. I can answer questions about hacking games, cybersecurity, and how they connect. What would you like to know?
+                            </div>
+                        </div>
+                        
+                        <div class="hackgame-typing-indicator" id="hackgame-typing-indicator">
+                            <div class="hackgame-typing-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        
+                        <div class="hackgame-chat-input">
+                            <input type="text" id="hackgame-user-input" placeholder="Ask me anything about hacking and gaming...">
+                            <button id="hackgame-send-button">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>Feel free to reach out to me for any inquiries or collaboration opportunities.</p>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Digital Realm</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>aazimbk123@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Signal</h4>
+                            <p>Encrypted Communication</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-keybase"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-hacker-news"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Encrypted Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">Aaz<span>im</span></div>
+                    <p>Building secure digital solutions for a vulnerable world.</p>
+                </div>
+                <div class="footer-links">
+                    <div>
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#portfolio">Portfolio</a></li>
+                            <li><a href="#memory-game">Memory Game</a></li>
+                            <li><a href="#hackgame-bot">HackGame Bot</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#">Security Auditing</a></li>
+                            <li><a href="#">Secure Development</a></li>
+                            <li><a href="#">Penetration Testing</a></li>
+                            <li><a href="#">Consultation</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Aazim. All Rights Reserved. | Stay secure, stay anonymous.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Win Message -->
+    <div class="win-message" id="win-message">
+        <div class="win-content">
+            <h2>ACCESS GRANTED</h2>
+            <p>You've matched all the cards!</p>
+            <p id="final-stats">Moves: 0 | Time: 0s</p>
+            <button class="game-btn" id="play-again-btn">Play Again</button>
+        </div>
+    </div>
+
+    <script>
+        // Matrix Rain Effect
+        const canvas = document.getElementById('matrixRain');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$#@%&*';
+        const charArray = characters.split('');
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        const drops = [];
+        
+        for (let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+        
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#0F0';
+            ctx.font = fontSize + 'px monospace';
+            
+            for (let i = 0; i < drops.length; i++) {
+                const text = charArray[Math.floor(Math.random() * charArray.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                
+                drops[i]++;
+            }
+        }
+        
+        setInterval(drawMatrix, 35);
+        
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Message encrypted and sent! I will respond through secure channels.');
+            this.reset();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Memory Card Game JavaScript
+        document.addEventListener('DOMContentLoaded', () => {
+            // Game elements
+            const gameBoard = document.getElementById('game-board');
+            const movesDisplay = document.getElementById('moves');
+            const timerDisplay = document.getElementById('timer');
+            const matchesDisplay = document.getElementById('matches');
+            const restartBtn = document.getElementById('restart-btn');
+            const newGameBtn = document.getElementById('new-game-btn');
+            const winMessage = document.getElementById('win-message');
+            const finalStats = document.getElementById('final-stats');
+            const playAgainBtn = document.getElementById('play-again-btn');
+            
+            // Game variables
+            let cards = [];
+            let flippedCards = [];
+            let matchedPairs = 0;
+            let moves = 0;
+            let timer = 0;
+            let timerInterval;
+            let gameStarted = false;
+            
+            // Card symbols - using hacker-themed icons
+            const symbols = ['🔒', '💻', '🔑', '🌐', '🛡️', '⚡', '🔍', '💾'];
+            
+            // Initialize game
+            function initGame() {
+                // Reset game state
+                gameBoard.innerHTML = '';
+                flippedCards = [];
+                matchedPairs = 0;
+                moves = 0;
+                timer = 0;
+                gameStarted = false;
+                
+                // Update displays
+                movesDisplay.textContent = moves;
+                timerDisplay.textContent = `${timer}s`;
+                matchesDisplay.textContent = `${matchedPairs}/8`;
+                
+                // Clear timer
+                clearInterval(timerInterval);
+                
+                // Create cards
+                cards = [...symbols, ...symbols];
+                
+                // Shuffle cards
+                shuffleCards();
+                
+                // Create card elements
+                cards.forEach((symbol, index) => {
+                    const card = document.createElement('div');
+                    card.classList.add('card');
+                    card.dataset.index = index;
+                    
+                    const cardFront = document.createElement('div');
+                    cardFront.classList.add('card-front');
+                    cardFront.textContent = symbol;
+                    
+                    const cardBack = document.createElement('div');
+                    cardBack.classList.add('card-back');
+                    
+                    card.appendChild(cardFront);
+                    card.appendChild(cardBack);
+                    
+                    card.addEventListener('click', () => flipCard(card));
+                    
+                    gameBoard.appendChild(card);
+                });
+                
+                // Hide win message
+                winMessage.classList.remove('show');
+            }
+            
+            // Shuffle cards using Fisher-Yates algorithm
+            function shuffleCards() {
+                for (let i = cards.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [cards[i], cards[j]] = [cards[j], cards[i]];
+                }
+            }
+            
+            // Flip card
+            function flipCard(card) {
+                // Don't allow flipping if card is already flipped or matched
+                if (card.classList.contains('flipped') || flippedCards.length === 2) {
+                    return;
+                }
+                
+                // Start timer on first move
+                if (!gameStarted) {
+                    startTimer();
+                    gameStarted = true;
+                }
+                
+                // Flip the card
+                card.classList.add('flipped');
+                flippedCards.push(card);
+                
+                // Check for match when two cards are flipped
+                if (flippedCards.length === 2) {
+                    moves++;
+                    movesDisplay.textContent = moves;
+                    
+                    const card1 = flippedCards[0];
+                    const card2 = flippedCards[1];
+                    
+                    const symbol1 = cards[card1.dataset.index];
+                    const symbol2 = cards[card2.dataset.index];
+                    
+                    if (symbol1 === symbol2) {
+                        // Match found
+                        matchedPairs++;
+                        matchesDisplay.textContent = `${matchedPairs}/8`;
+                        
+                        // Disable matched cards
+                        card1.style.pointerEvents = 'none';
+                        card2.style.pointerEvents = 'none';
+                        
+                        // Add match animation
+                        card1.classList.add('matched');
+                        card2.classList.add('matched');
+                        
+                        flippedCards = [];
+                        
+                        // Check for win
+                        if (matchedPairs === 8) {
+                            endGame();
+                        }
+                    } else {
+                        // No match - flip cards back after delay
+                        setTimeout(() => {
+                            card1.classList.remove('flipped');
+                            card2.classList.remove('flipped');
+                            flippedCards = [];
+                        }, 1000);
+                    }
+                }
+            }
+            
+            // Start timer
+            function startTimer() {
+                clearInterval(timerInterval);
+                timerInterval = setInterval(() => {
+                    timer++;
+                    timerDisplay.textContent = `${timer}s`;
+                }, 1000);
+            }
+            
+            // End game
+            function endGame() {
+                clearInterval(timerInterval);
+                
+                // Show win message
+                finalStats.textContent = `Moves: ${moves} | Time: ${timer}s`;
+                winMessage.classList.add('show');
+            }
+            
+            // Event listeners for game buttons
+            restartBtn.addEventListener('click', initGame);
+            newGameBtn.addEventListener('click', initGame);
+            playAgainBtn.addEventListener('click', initGame);
+            
+            // Initialize the game
+            initGame();
+        });
+
+        // HackGame Bot JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const hackgameChatMessages = document.getElementById('hackgame-chat-messages');
+            const hackgameUserInput = document.getElementById('hackgame-user-input');
+            const hackgameSendButton = document.getElementById('hackgame-send-button');
+            const hackgameTypingIndicator = document.getElementById('hackgame-typing-indicator');
+            const hackgameQuestions = document.querySelectorAll('.hackgame-question');
+            
+            // Bot responses database
+            const hackgameBotResponses = {
+                "greeting": "Hello! I'm your HackGame assistant. I can answer questions about hacking games, cybersecurity, and how they connect. What would you like to know?",
+                "what is ethical hacking": "Ethical hacking involves legally breaking into systems to discover vulnerabilities and help organizations improve security. It's authorized hacking where you use the same techniques as malicious hackers but for defensive purposes.",
+                "recommend hacking games for beginners": "For beginners, I recommend:<br><br>• <strong>Hacknet</strong> - Realistic terminal-based hacking with a great story<br>• <strong>Uplink</strong> - Classic hacking simulation<br>• <strong>Grey Hack</strong> - Multiplayer hacking simulator<br>• <strong>Nite Team 4</strong> - Military cyber warfare simulation<br><br>These games introduce concepts gradually and are beginner-friendly!",
+                "what is a ctf competition": "CTF (Capture The Flag) is a cybersecurity competition where participants solve security-related challenges. These can include:<br><br>• <strong>Jeopardy-style</strong>: Various challenges in categories like web exploitation, cryptography, forensics<br>• <strong>Attack-Defense</strong>: Teams attack other teams' systems while defending their own<br><br>CTFs are great for learning and practicing real cybersecurity skills!",
+                "how to get started in cybersecurity": "Getting started in cybersecurity:<br><br>1. Learn the basics of networking and operating systems<br>2. Try hacking games and virtual labs<br>3. Participate in CTF competitions<br>4. Study programming (Python, Bash)<br>5. Explore security tools like Wireshark, Nmap, Metasploit<br>6. Consider certifications like Security+ or CEH<br><br>Practice is key - set up a home lab or use platforms like HackTheBox!",
+                "best resources to learn hacking": "Great resources for learning hacking:<br><br>• <strong>Platforms</strong>: HackTheBox, TryHackMe, OverTheWire<br>• <strong>Games</strong>: Hacknet, Uplink, Nite Team 4<br>• <strong>Books</strong>: 'The Web Application Hacker's Handbook', 'Hacking: The Art of Exploitation'<br>• <strong>Courses</strong>: Cybrary, Coursera cybersecurity specializations<br>• <strong>Communities</strong>: Reddit r/netsec, Discord hacking servers<br><br>Start with beginner-friendly resources and gradually challenge yourself!",
+                "default": "I'm not sure I understand that question. Try asking about:<br><br>• Hacking game recommendations<br>• Cybersecurity concepts<br>• How to get started in ethical hacking<br>• CTF competitions<br>• Learning resources"
+            };
+            
+            // Add message to chat
+            function addHackgameMessage(message, isUser = false) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `hackgame-message ${isUser ? 'hackgame-user-message' : 'hackgame-bot-message'}`;
+                messageDiv.innerHTML = message;
+                hackgameChatMessages.appendChild(messageDiv);
+                hackgameChatMessages.scrollTop = hackgameChatMessages.scrollHeight;
+            }
+            
+            // Show typing indicator
+            function showHackgameTypingIndicator() {
+                hackgameTypingIndicator.style.display = 'block';
+                hackgameChatMessages.scrollTop = hackgameChatMessages.scrollHeight;
+            }
+            
+            // Hide typing indicator
+            function hideHackgameTypingIndicator() {
+                hackgameTypingIndicator.style.display = 'none';
+            }
+            
+            // Process user message
+            function processHackgameUserMessage() {
+                const message = hackgameUserInput.value.trim().toLowerCase();
+                if (message === '') return;
+                
+                // Add user message to chat
+                addHackgameMessage(message, true);
+                hackgameUserInput.value = '';
+                
+                // Show typing indicator
+                showHackgameTypingIndicator();
+                
+                // Simulate bot thinking
+                setTimeout(() => {
+                    hideHackgameTypingIndicator();
+                    
+                    // Find appropriate response
+                    let response = hackgameBotResponses.default;
+                    
+                    if (message.includes('hello') || message.includes('hi') || message.includes('hey')) {
+                        response = hackgameBotResponses.greeting;
+                    } else if (message.includes('ethical') && message.includes('hack')) {
+                        response = hackgameBotResponses["what is ethical hacking"];
+                    } else if (message.includes('beginner') || (message.includes('game') && message.includes('recommend'))) {
+                        response = hackgameBotResponses["recommend hacking games for beginners"];
+                    } else if (message.includes('ctf') || message.includes('capture the flag')) {
+                        response = hackgameBotResponses["what is a ctf competition"];
+                    } else if (message.includes('start') || message.includes('begin') || message.includes('cyber')) {
+                        response = hackgameBotResponses["how to get started in cybersecurity"];
+                    } else if (message.includes('resource') || message.includes('learn') || message.includes('study')) {
+                        response = hackgameBotResponses["best resources to learn hacking"];
+                    }
+                    
+                    // Add bot response to chat
+                    addHackgameMessage(response);
+                }, 1500);
+            }
+            
+            // Event listeners
+            hackgameSendButton.addEventListener('click', processHackgameUserMessage);
+            
+            hackgameUserInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    processHackgameUserMessage();
+                }
+            });
+            
+            // Quick question click handlers
+            hackgameQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    hackgameUserInput.value = this.getAttribute('data-question');
+                    processHackgameUserMessage();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
